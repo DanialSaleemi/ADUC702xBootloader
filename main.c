@@ -29,12 +29,8 @@
 #include <stdio.h>
 
 
-#define RX_Flag_UPGRADE 0x2A		// if receive (* or 0x2A), then start upgrade
-//#define HEX_LINES 0x10		// max number of hex lines to read.
-//#define MAX_BUFFER_SIZE 32
-//#define RS485_BUFFER_SIZE 512
-#define MAX_BUFFER_SIZE 80		// size of buffer to parse data characters from hex file. mostly 32 characters for data
-//#define RS485_BUFFER_SIZE 512
+#define RX_Flag_UPGRADE 0x2A			// if receive (* or 0x2A), then start upgrade
+#define MAX_BUFFER_SIZE 80				// size of buffer to parse hex record
 unsigned int UserAppPTR = 0x00082040;
 unsigned short AppStartAddr = 0x2000;				// equal to 0x00082000
 
@@ -48,26 +44,18 @@ unsigned char 	timeout = 0x0;			// 0 means no timeout of 5 sec
 									// 0xAA mean timeout 
 
 int hexchar = 0;
-//unsigned char RX_temp1;
-unsigned long addr_offset;
 
-//unsigned int 	Content_start = 0x0;
-unsigned char 	record_type =  0x03;
-unsigned char 	record_length= 0xAB;
-unsigned short 	hex_offset_address = 0xF000;
+unsigned long 	addr_offset;
+unsigned char 	record_type =  0x03; 			// initialized with non-zero value
+unsigned char 	record_length= 0xAB;			// initialized with non-zero value
+unsigned short 	hex_offset_address = 0xF000;	// initialized with non-zero value
  
 unsigned char 	hex_chksum = 0x10;
 unsigned char 	checksum = 0;
-//unsigned int 	lineindex = 0x00;				//used in 2D array to store hex data line-wise
-//unsigned char 	end_of_record_found = 0;	//end_of_record: (record_type=0x01 in Intel hex file)
-//unsigned char 	line_written = 1;			// flag to indicate when a hex line is written to the flash
-//unsigned char 	newlineflag = 0;			// flag to indicate a new line character has been received	   
+
 unsigned short 	offset_address = 0;
-//		 short 	linecount = 0x0000;
 unsigned short 	calculated_crc;
 unsigned short 	CRC = 0x1234;
-//unsigned int 	errorcode = 0;
-//		int 	read_from_flash_done = 0;
 
 unsigned char 	Package[MAX_BUFFER_SIZE]={0};		// receive package content
 //unsigned char	RS485_BUFFER[RS485_BUFFER_SIZE]={0};
@@ -90,7 +78,7 @@ void main(void)
 	// wait for RX flag to upgrade or timeout to jump app
 
 			SendString("\r\n*********************************\r\n\nReady @115200 baud n,8,1 \r\n");
-//			SendString("\r\nInsert Update Command to enter boot mode or wait 5 seconds for Application\r\n");
+			SendString("\r\nInsert Update Command to enter boot mode or wait 5 seconds for User Application\r\n");
     
 	while(1)
 	{

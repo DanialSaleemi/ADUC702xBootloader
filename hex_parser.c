@@ -1,3 +1,5 @@
+// not being used, for reference only
+
 #include <ADuC7026.H>
 #include "Flash.h"
 #include "IRQ_FIQ.h"

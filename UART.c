@@ -36,10 +36,10 @@ void InitUART()				 // RS485
 	GP2DAT |= 0x05000000;
 
    	COMCON0 = 0x080;			// Setting DLAB
-	COMDIV0=0x0B;           // COMDIV0 -> 2, Set baud rate to 115206 (use of fractionnal baud rate mode) (from aduc/hardware.c)
+	COMDIV0=0x0B;           	// COMDIV0 -> 2, Set baud rate to 115206 (use of fractionnal baud rate mode) (from aduc/hardware.c)
    	COMDIV1 = 0x00;		    
-	COMDIV2=0x883E;         // M=1  N=62      FBEN=1    => 0x883E	(from aduc/hardware.c)
-	COMCON0=0x03;			// (from aduc/hardware.c) Clearing DLAB, 8 bits, 1 Stop bit, Parity None
+	COMDIV2=0x883E;         	// M=1  N=62      FBEN=1    => 0x883E	(from aduc/hardware.c)
+	COMCON0=0x03;				// (from aduc/hardware.c) Clearing DLAB, 8 bits, 1 Stop bit, Parity None
 
 	COMIEN0=0x05;				// Enable Rx Status Interrupt
 								// Enable Receive Buffer Full Interrupt
@@ -135,6 +135,24 @@ void SendString(char *string) __ram
 
 }
 
+// CRC-16 calculation function
+
+short calculate_crc16(unsigned char *data, unsigned int length) __ram
+{
+	int i,j = 0;
+    unsigned int crc = 0xFFFF;
+    for (i = 0; i < length; i++) {
+        crc ^= (unsigned int)data[i];
+        for (j = 0; j < 8; j++) {
+            if (crc & 0x0001) {
+                crc = (crc >> 1) ^ 0xA001;
+            } else {
+                crc >>= 1;
+            }
+        }
+    }
+    return crc;
+}
 
 /*
 void wdt (void)
@@ -164,22 +182,4 @@ void RS485_BUFF_FLUSH(void)
 */
 
 
-// CRC-16 calculation function
-
-short calculate_crc16(unsigned char *data, unsigned int length) __ram
-{
-	int i,j = 0;
-    unsigned int crc = 0xFFFF;
-    for (i = 0; i < length; i++) {
-        crc ^= (unsigned int)data[i];
-        for (j = 0; j < 8; j++) {
-            if (crc & 0x0001) {
-                crc = (crc >> 1) ^ 0xA001;
-            } else {
-                crc >>= 1;
-            }
-        }
-    }
-    return crc;
-}
 

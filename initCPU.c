@@ -81,19 +81,19 @@ void delay_ms(unsigned int count) __ram
     }
 }
 
-void SET_TEST_LED_ON_OFF(void) __ram                          // Toggles LED Connected to P1.1 
+void SET_TEST_LED_ON_OFF(void) __ram                          // Toggles Red LED Connected to P1.1 
 {
   SET_LED_TEST_ON ;delay_ms(30);
   SET_LED_TEST_OFF;delay_ms(30); 
 }
 
-void SET_GLED_ON_OFF(void) __ram                              // Toggles LED Connected to P4.2 (Eval board only) 
+void SET_GLED_ON_OFF(void) __ram                              // Toggles Green LED Connected to P4.2 (Eval board only) 
 {
   SET_GLED_ON ;delay_ms(30);   
   SET_GLED_OFF;delay_ms(30);  
 }
 
-void SET_WLED_ON_OFF(void) __ram                          // Toggles LED Connected to P4.3 (Eval board only - test specific) 
+void SET_WLED_ON_OFF(void) __ram                          // Toggles White LED Connected to P4.3 (Eval board only - self mounted) 
 {
   SET_WLED_ON ;delay_ms(30);  
   SET_WLED_OFF;delay_ms(30);  

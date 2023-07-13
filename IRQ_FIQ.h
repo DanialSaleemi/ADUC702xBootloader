@@ -12,11 +12,10 @@
 
  Description   : some head about IRQ and FIQ function
 ************************************************************************/
-#define RS485_BUFFER_SIZE 512
+//#define RS485_BUFFER_SIZE 512
 //#define MAX_BUFFER_SIZE 2048
 
 //extern unsigned char Package[MAX_BUFFER_SIZE];
-extern int endoffile;
 //extern unsigned char RX_temp1;
 //extern unsigned long offset_addr;
 

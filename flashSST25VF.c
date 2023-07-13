@@ -31,7 +31,6 @@ unsigned char read_byte(unsigned long add) __ram
 	SPI((add&0x000000FF)>> 0); 	//ADDRESS		
 	ret = SPI(0x00);
 	FLASH_DESELECT;
-//	toggle_GLED;
 	return ret;
 }
 
@@ -52,7 +51,6 @@ void high_speed_read(unsigned long add, unsigned char *data, unsigned short int 
 	{
 		data[i] = SPI(0x00);
 		WDT;
-//		toggle_GLED;
 	}
 	FLASH_DESELECT;
 

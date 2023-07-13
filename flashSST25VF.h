@@ -20,7 +20,7 @@
 #include "main.h"
 #include "spi.h" 
 
-#define BOOT_EXT_FLASH_OFFSET		0x1000
+#define BOOT_EXT_FLASH_OFFSET		0x25000					// placed after user application content - refer to MODBUS_memory_map.xlsx
 #define BUSY						1
 
 
