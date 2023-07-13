@@ -1,0 +1,26 @@
+*.LST
+*.OBJ
+*.elf
+*.bak
+*.BAK
+*.d
+*.__i
+.vscode/c_cpp_properties.json
+.vscode/launch.json
+.vscode/settings.json
+IAP_boot.sublime-workspace
+IAP_boot_RS485.plg
+IAP_boot_RS485.SBR
+IAP_boot_RS485.lnp
+IAP_boot_RS485.MAP
+IAP_boot
+IAP_boot.plg
+IAP_boot.MAP
+IAP_boot.SBR
+IAP_boot.lnp
+spi - Copy.c
+spi - Copy.h
+spi_chatgpt.c
+ledblink.hex
+IRQ0_LED.hex
+IAP_boot.hex

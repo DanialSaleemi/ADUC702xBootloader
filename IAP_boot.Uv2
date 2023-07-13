@@ -1,0 +1,111 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+Target (IAP_boot), 0x0005 // Tools: ''
+
+Group (ASM)
+Group (C Source)
+Group (H Head)
+
+File 1,2,<.\startup.s><startup.s> 0x47F6443C 
+File 2,1,<.\main.c><main.c> 0x64A86390 
+File 2,1,<.\Flash.c><Flash.c> 0x47F8F3FE 
+File 2,1,<.\IRQ_FIQ.c><IRQ_FIQ.c> 0x64A7AE71 
+File 2,1,<.\UART.c><UART.c> 0x64A86173 
+File 2,1,<.\flashSST25VF.c><flashSST25VF.c> 0x64A11B29 
+File 2,1,<.\spi.c><spi.c> 0x649BC9D3 
+File 2,1,<.\initCPU.c><initCPU.c> 0x64A7AF62 
+File 2,1,<.\upgradeapp.c><upgradeapp.c> 0x64A8683E 
+File 3,5,<.\Flash.h><Flash.h> 0x47F8A91E 
+File 3,5,<.\IRQ_FIQ.h><IRQ_FIQ.h> 0x64A85642 
+File 3,5,<.\UART.h><UART.h> 0x649C13BD 
+File 3,5,<.\main.h><main.h> 0x64A863C6 
+File 3,5,<.\flashSST25VF.h><flashSST25VF.h> 0x6497D4B7 
+File 3,5,<.\spi.h><spi.h> 0x649BC9D3 
+File 3,5,<.\initCPU.h><initCPU.h> 0x64A41F15 
+
+
+Options 1,0,0  // Target 'IAP_boot'
+ Device (ADuC7026)
+ Vendor (Analog Devices)
+ Cpu (IRAM(0x10000-0x11FFF) IROM(0x80000-0x8F7FF) CLOCK(32768) CPUTYPE(ARM7TDMI))
+ FlashUt ()
+ StupF ("Startup\ADI\startup.s" ("ADuC702x Startup Code"))
+ FlashDR (UL2ARM(-U88308796 -O7 -C0 -FO7 -FD10000 -FC800 -FN1 -FF0ADuC702X -FS080000 -FL0F800))
+ DevID ()
+ Rgf (ADuC7026.H)
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin (C:\Keil\ARM\BIN)
+ EnvInc ()
+ EnvLib ()
+ EnvReg ()
+ OrgReg (ÿADI\)
+ TgStat=16
+ OutDir (.\)
+ OutName (IAP_boot_RS485)
+ GenApp=1
+ GenLib=0
+ GenHex=1
+ Debug=1
+ Browse=0
+ LstDir (.\)
+ HexSel=0
+ MG32K=0
+ TGMORE=1
+ RunUsr 0 0 <>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ SVCSID <>
+ KACPU (ARM7TDMI)
+ TKAFL { 0,128,0,0,0,12,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ KIROM { 1,0,0,8,0,0,248,0,0 }
+ KIRAM { 0,0,0,1,0,0,32,0,0 }
+ KXRAM { 0,0,0,0,0,0,0,0,0 }
+ KAOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ KCAFLG { 197,152,20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ KCAMSC ()
+ KCADEF ()
+ KCAUDF ()
+ KCAINC ()
+ KAAFLG { 20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ KAAMSC ()
+ KAASET ()
+ KAARST ()
+ KAAINC ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ KLAFLG { 40,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ KLAMSC ()
+ KLADWN ()
+ KLACFI ()
+ KLAASN ()
+ KLARES ()
+ KLACCL ()
+ KLAUCL (DATA(0x10040-0x11FFF),\~CODE(0x80000-0x81FFF),CONST(0x80000-0x81FFF),ERAM(0x10040-0x11FFF))
+ KLACSC ()
+ KLAUCS ()
+  OPTDL (SARM.DLL)(-cADuC70)(DARMAD.DLL)(-pADuC7026)(SARM.DLL)(-cADuC70)(TARMAD.DLL)(-pADuC7026)
+  OPTDBG 48125,0,()()()()()()()()()() ()()()()
+ FLASH1 { 1,0,0,0,0,0,0,0,255,255,255,255,0,0,0,0,0,0,0,0 }
+ FLASH2 ()
+ FLASH3 ()
+ FLASH4 ()
+EndOpt
+

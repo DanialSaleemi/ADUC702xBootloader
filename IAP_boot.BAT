@@ -1,0 +1,17 @@
+SET CAINC=C:\Keil\ARM\INC\ADI\;C:\Keil\ARM\INC\
+SET CALIB=C:\Keil\ARM\LIB
+SET CPU_TYPE=ADuC7026
+SET CPU_VENDOR=Analog Devices
+SET UV2_TARGET=IAP_boot
+SET CPU_XTAL=0x00008000
+C:\Keil\ARM\BIN\AA @startup._ia
+C:\Keil\ARM\BIN\CA @main.__i
+C:\Keil\ARM\BIN\CA @Flash.__i
+C:\Keil\ARM\BIN\CA @IRQ_FIQ.__i
+C:\Keil\ARM\BIN\CA @UART.__i
+C:\Keil\ARM\BIN\CA @FLASHS~1.__I
+C:\Keil\ARM\BIN\CA @spi.__i
+C:\Keil\ARM\BIN\CA @initCPU.__i
+C:\Keil\ARM\BIN\CA @UPGRAD~1.__I
+C:\Keil\ARM\BIN\LA @IAP_BO~1.LNP
+"C:\Keil\ARM\BIN\OHA" "IAP_boot_RS485" 
